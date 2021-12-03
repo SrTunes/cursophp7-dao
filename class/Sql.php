@@ -20,8 +20,8 @@ class Sql extends PDO {
 			$this->setParam($statement, $key, $value);
 		}
 	}
-	/*Método bindParam dinâmico, que recebe o atributo do parametro, seja um login, ou uma senha
-	e insere na função bindParam()*/
+	/*Método bindParam dinâmico, que recebe o atributo do parametro, seja um
+	login, ou uma senha 	e insere na função bindParam()*/
 	private function setParam($statement, $key, $value){
 
 		$statement->bindParam($key, $value);
