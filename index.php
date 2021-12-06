@@ -2,20 +2,21 @@
 //Carregando o arquive de configuração do projeto
 require_once("config.php");
 
-$sql = new Sql();
+/*$sql = new Sql();
 
 $usuarios = $sql->select("SELECT * FROM tb_usuarios");
 
 var_dump($sql);
 echo "<br><br>";
 echo json_encode($usuarios);
+*/
 
 //Carrega um usuário
-/*$usuario = new Usuario();
+$usuario = new Usuario();
 
 $usuario->loadbyId(3);
 
-echo $usuario;*/
+echo $usuario;
 
 //Carrega uma lista de usuários
 /*$lista = Usuario::getList();

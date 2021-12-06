@@ -3,8 +3,8 @@
 class Usuario {
 
 	private $idusuario;
-	private $deslogin;
-	private $dessenha;
+	private $desclogin;
+	private $descsenha;
 	private $dtcadastro;
 
 	public function getIdusuario(){
@@ -15,20 +15,20 @@ class Usuario {
 		$this->idusuario = $value;
 	}
 
-	public function getDeslogin(){
-		return $this->deslogin;
+	public function getDesclogin(){
+		return $this->desclogin;
 	}
 
-	public function setDeslogin($value){
-		$this->deslogin = $value;
+	public function setDesclogin($value){
+		$this->desclogin = $value;
 	}
 
-	public function getDessenha(){
-		return $this->dessenha;
+	public function getDescsenha(){
+		return $this->descsenha;
 	}
 
-	public function setDessenha($value){
-		$this->dessenha = $value;
+	public function setDescsenha($value){
+		$this->descsenha = $value;
 	}
 
 	public function getDtcadastro(){
@@ -39,6 +39,7 @@ class Usuario {
 		$this->dtcadastro = $value;
 	}
 
+	//Metodo para carregar dados do usuário do BD através do ID
 	public function loadById($id){
 
 		$sql = new Sql();
@@ -46,6 +47,7 @@ class Usuario {
 			":ID"=>$id
 		));
 
+		//Verificando a existencia deste ID
 		if(count($results) > 0){
 
 			$this->setData($results[0]);
@@ -96,8 +98,8 @@ class Usuario {
 		$sql = new Sql();
 
 		$results = $sql->select("CALL sp_usuarios_insert(:LOGIN, :PASSWORD)", array(
-			':LOGIN'=>$this->getDeslogin(),
-			':PASSWORD'=>$this->getDessenha()
+			':LOGIN'=>$this->getDesclogin(),
+			':PASSWORD'=>$this->getDescsenha()
 		));
 
 		if (count($results) > 0){
@@ -111,9 +113,9 @@ class Usuario {
 	public function setData($data){
 
 		$this->setIdusuario($data['idusuario']);
-		$this->setDeslogin($data['deslogin']);
-		$this->setDessenha($data['dessenha']);
-		$this->setDtcadastro(new DateTime($data['dtcadastro']));	
+		$this->setDesclogin($data['desclogin']);
+		$this->setDescsenha($data['descsenha']);
+		$this->setDtcadastro(new DateTime($data['dtcadastro']));
 	}
 
 	public function update($login, $password){
@@ -139,16 +141,16 @@ class Usuario {
 		));
 
 		$this->setIdusuario(0);
-		$this->setDeslogin("");
-		$this->setDessenha("");
+		$this->setDesclogin("");
+		$this->setDescsenha("");
 		$this->setDtcadastro(new DateTime());
 
 	}
 
 	public function __construct($login = "", $password = ""){
 
-		$this->setDeslogin($login);
-		$this->setDessenha($password);
+		$this->setDesclogin($login);
+		$this->setDescsenha($password);
 	}
 
 
@@ -156,8 +158,8 @@ class Usuario {
 
 		return json_encode(array(
 			"idusuario"=>$this->getIdusuario(),
-			"deslogin"=>$this->getDeslogin(),
-			"dessenha"=>$this->getDessenha(),
+			"desclogin"=>$this->getDesclogin(),
+			"descsenha"=>$this->getDescsenha(),
 			"dtcadastro"=>$this->getDtcadastro()->format("d/m/Y H:i:s")
 		));
 	}
