@@ -145,7 +145,7 @@ class Usuario {
 		$this->setDtcadastro(new DateTime());
 
 	}
-
+	//Método construtor que recebe as variaveis para fazer o set e o get
 	public function __construct($login = "", $password = ""){
 
 		$this->setDesclogin($login);

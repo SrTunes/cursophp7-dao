@@ -38,14 +38,15 @@ $usuario = new Usuario();
 $usuario->login("root", "!@#$%");
 
 echo $usuario;
-
+echo "<br>";
+echo "====================================<br>";
 //Criando um novo usuário
-/*$aluno = new Usuario("aluna", "#@!");
+$aluno = new Usuario("aluna", "#@!");
 
 $aluno->insert();
 
 echo $aluno;
-*/
+
 
 //Alterar um usuário
 /*$usuario = new Usuario();
