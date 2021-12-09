@@ -60,14 +60,14 @@ class Usuario {
 
 		$sql = new Sql();
 
-		return $sql->select("SELECT * FROM tb_usuarios ORDER BY deslogin;");
+		return $sql->select("SELECT * FROM tb_usuarios ORDER BY desclogin;");
 	}
 
 	public static function search($login){
 
 		$sql = new Sql();
 
-		return $sql->select("SELECT * FROM tb_usuarios WHERE deslogin LIKE :SEARCH ORDER BY deslogin",array(
+		return $sql->select("SELECT * FROM tb_usuarios WHERE desclogin LIKE :SEARCH ORDER BY desclogin",array(
 			':SEARCH'=>"%".$login."%"
 
 		));
@@ -76,7 +76,7 @@ class Usuario {
 	public function login($login, $password){
 
 		$sql = new Sql();
-		$results = $sql->select("SELECT * FROM tb_usuarios WHERE deslogin = :LOGIN AND dessenha = :PASSWORD", array(
+		$results = $sql->select("SELECT * FROM tb_usuarios WHERE desclogin = :LOGIN AND descsenha = :PASSWORD", array(
 			":LOGIN"=>$login,
 			":PASSWORD"=>$password
 		));
@@ -107,7 +107,6 @@ class Usuario {
 			$this->setData($results[0]);
 		}
 
-
 	}
 
 	public function setData($data){
@@ -125,7 +124,7 @@ class Usuario {
 
 		$sql = new Sql();
 
-		$sql->query("UPDATE TB_USUARIOS SET deslogin = :LOGIN, dessenha = :PASSWORD, WHERE idusuario = :ID", array(
+		$sql->query("UPDATE TB_USUARIOS SET desclogin = :LOGIN, descsenha = :PASSWORD, WHERE idusuario = :ID", array(
 			':LOGIN'=>$this->getDeslogin(),
 			':PASSWORD'=>$this->getDessenha(),
 			':ID'=>$this->getIdusuario()

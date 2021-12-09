@@ -16,23 +16,28 @@ $usuario = new Usuario();
 
 $usuario->loadbyId(3);
 
-echo $usuario;
+echo $usuario."<br>";
+echo "====================================<br>";
 
-//Carrega uma lista de usuários
-/*$lista = Usuario::getList();
+/*Carrega uma lista de usuários, como o método é estátio, não é necessário
+instansia-lo, podemos chama-lo direto*/
 
-echo json_encode($lista);*/
+$lista = Usuario::getList();
 
+echo json_encode($lista);
+echo "<br>";
+echo "====================================<br>";
 //Carrega uma lista de usuários buscando pelo login
-/*$search = Usuario::search("jo");
+$search = Usuario::search("jo");
 
-echo json_encode($search);*/
-
+echo json_encode($search);
+echo "<br>";
+echo "====================================<br>";
 //Carreaga um usuário usando o login e a senha
-/*$usuario = new Usuario();
+$usuario = new Usuario();
 $usuario->login("root", "!@#$%");
 
-echo $usuario;*/
+echo $usuario;
 
 //Criando um novo usuário
 /*$aluno = new Usuario("aluna", "#@!");
