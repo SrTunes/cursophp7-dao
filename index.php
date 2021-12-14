@@ -58,13 +58,14 @@ $usuario->update("professor", "%%*&");
 echo $usuario;
 echo "<br>";
 echo "====================================<br>";
-/*//Deletar um registro
+
+//Deletar um registro
 $usuario = new Usuario();
 
-$usuario->loadById(4);
+$usuario->loadById(13);
 
 $usuario->delete();
 
 echo $usuario;
-*/
+
 ?>

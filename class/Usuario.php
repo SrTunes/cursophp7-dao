@@ -138,7 +138,7 @@ class Usuario {
 		$sql->execQuery("DELETE FROM tb_usuarios WHERE idusuario = :ID", array(
 			':ID'=>$this->getIdusuario()
 		));
-
+		//Limpando os dados do objeto
 		$this->setIdusuario(0);
 		$this->setDesclogin("");
 		$this->setDescsenha("");
