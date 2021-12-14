@@ -116,17 +116,17 @@ class Usuario {
 		$this->setDescsenha($data['descsenha']);
 		$this->setDtcadastro(new DateTime($data['dtcadastro']));
 	}
-
+	//Método para atualizar um registro
 	public function update($login, $password){
-
-		$this->setDeslogin($login);
-		$this->setDessenha($password);
+		//Definindo as variaveis dentro do objeto
+		$this->setDesclogin($login);
+		$this->setDescsenha($password);
 
 		$sql = new Sql();
 
-		$sql->query("UPDATE TB_USUARIOS SET desclogin = :LOGIN, descsenha = :PASSWORD, WHERE idusuario = :ID", array(
-			':LOGIN'=>$this->getDeslogin(),
-			':PASSWORD'=>$this->getDessenha(),
+		$sql->execQuery("UPDATE tb_usuarios SET desclogin = :LOGIN, descsenha = :PASSWORD WHERE idusuario = :ID", array(
+			':LOGIN'=>$this->getDesclogin(),
+			':PASSWORD'=>$this->getDescsenha(),
 			':ID'=>$this->getIdusuario()
 		));
 	}
@@ -135,7 +135,7 @@ class Usuario {
 
 		$sql = new Sql();
 
-		$sql->query("DELETE FROM tb_usuarios WHERE idusuario = :ID", array(
+		$sql->execQuery("DELETE FROM tb_usuarios WHERE idusuario = :ID", array(
 			':ID'=>$this->getIdusuario()
 		));
 

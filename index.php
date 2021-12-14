@@ -46,18 +46,19 @@ $aluno = new Usuario("aluna", "#@!");
 $aluno->insert();
 
 echo $aluno;
-
-
+echo "<br>";
+echo "====================================<br>";
 //Alterar um usuário
-/*$usuario = new Usuario();
+$usuario = new Usuario();
 
-$usuario->loadById(4);
+$usuario->loadById(10);
 
 $usuario->update("professor", "%%*&");
 
 echo $usuario;
-
-
+echo "<br>";
+echo "====================================<br>";
+/*//Deletar um registro
 $usuario = new Usuario();
 
 $usuario->loadById(4);
