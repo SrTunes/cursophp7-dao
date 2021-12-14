@@ -130,7 +130,7 @@ class Usuario {
 			':ID'=>$this->getIdusuario()
 		));
 	}
-
+	//Método para deletar
 	public function delete(){
 
 		$sql = new Sql();
